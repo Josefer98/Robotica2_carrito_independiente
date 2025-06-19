@@ -3,55 +3,80 @@
 
 # 🚀 Proyecto final carrito independiente con baterias externas
 
-💡 Este proyecto muestra cómo controlar un conjunto de cuatro ruedas mecanum omnidireccionales usando dos módulos Motoron I2C desde una Raspberry Pi 4
+💡 Este proyecto muestra cómo controlar un conjunto de cuatro ruedas mecanum omnidireccionales usando dos módulos Motoron I2C desde una Raspberry Pi 4, con fuentes de energia independientes
 
 ## 📌 Introducción
 
-Utilizamos dos controladores Motoron (direcciones I2C `0x10` y `0x11`) para manejar cuatro motores con ruedas mecanum, logrando movimientos en cuatro direcciones: adelante, atrás, lateral derecha y lateral izquierda.  
+Utilizamos dos controladores Motoron (direcciones I2C `0x10` y `0x11`) para manejar cuatro motores con ruedas mecanum, logrando movimientos en cuatro direcciones: adelante, atrás, lateral derecha y lateral izquierda, conecetados a 2 baterias Lipo de 3 celdas con capacidad de 2200 mAh y un voltaje de 11.1 V (3 celdas). 
 
 ## 🧰 Tecnologías y Librerías
 
 - **Python 3**  
-- **motoron** (driver I2C para módulos Motoron)  
+- **motoron** (driver I2C para módulos Motoron) (https://github.com/pololu/motoron-python)   
 - **time** (para temporización)
-- 
-## 🚀 Para armado, instalación y ejecución de código
+- [RPi.GPIO](https://pypi.org/project/RPi.GPIO/) para control de pines en la Raspberry Pi
+- 2 Baterias lipo
+- cables de coneccion
+- protoboard
+- 4 motores GM25-370 con encoders
+  
+## 🚀 Para  ejecución de código
 ### Clonar el repositorio
 Copiar código
 ```bash
 git clone https://github.com/Cristian-duran/RobotCt_Omni_Wheel
 ```
-Dependencias y librerías necesarias
-🔧 Instalar todo en uno:
+Copiar el codigo en un entorno para poder ejecutarlo
+
+### Dependencias y librerías necesarias en el rasberry
+🔧 ejecutar en una terminal para tener todo lo necesario:
 ```bash
 pip install -r requirements.txt
 ```
 
-motoron
+para los motores (motoron)
 ```bash
 pip install motoron
 
 ```
+### Verificar si estan conectados los dos modulos necesarios
 
-## ⚙️ Esquema de funcionamiento
-Conecta ambos módulos Motoron a la Raspberry Pi vía I2C.
+ambos módulos Motoron deben estar conectados a la Raspberry Pi vía I2C.
 
-Ajusta las direcciones I2C si fuese necesario:
+<p>
+  <img src="files_/Esquemapaso.png" alt="conecciones" width="700" height="500"/>
+</p>
+
+### Ajusta las direcciones I2C si fuese necesario:
 
 ```bash
 MC1_ADDR = 0x10  # módulo controla motores 1 y 2 (izquierdas)
 MC2_ADDR = 0x11  # módulo controla motores 3 y 4 (derechas)
 ```
-
-Ajusta la velocidad base en la misma cabecera:
+### verificar la coneccion de ambos modulos ejecutando el comando en la terminal
 ```bash
-SPEED = 800  # rango de -máximo a +máximo
+i2cdetect -y 1
 ```
-
-Ejecuta el script de demostración:
 ```bash
-SPEED = 800  # rango de -máximo a +máximo
+i2cdetect -y 2
 ```
+## 🛠️Conecciones necesarias 
+### Conectamos los dos modulos con la rasberry pi 4 paralelamente
+
+### conectados los motores a los motores a las entradas out2 y 3 de ambos modulos (2 motores para un modulo)
+
+### coneccion de los encoders a los pines gpio 14 , 15 , 17 y 27 de la rasberry pi 4
+
+### conectamos a las fuentes de energia para los motores y para la raberry pi 4
+tomar en cuenta el votalaje y las tierras tando de motores como de las rasberry pi 4
+
+### Referencias 
+
+https://github.com/pololu/motoron-python 
+https://www.pololu.com/docs/0J84/
+
+## 🍓Ejecucion de codigo 
+### Abrir el codigo y ejecurtar en una teminal o correr desde un editor de codigo
 ```bash
 python i2c_simple_multi_example.py
 ```
@@ -68,3 +93,6 @@ Izquierda (2 s)
 
 ## 📌 Nota importante
 Asegúrarnos de que el bus I2C esté habilitado en tu Raspberry Pi (raspi-config).
+
+##Demostracion
+
