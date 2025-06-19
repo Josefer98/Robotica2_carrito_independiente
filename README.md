@@ -106,7 +106,7 @@ https://www.pololu.com/docs/0J84/
 ## 🍓Ejecucion de codigo 
 ### Abrir el codigo y ejecurtar en una teminal o correr desde un editor de codigo
 ```bash
-python i2c_simple_multi_example.py
+python codigomotor.py
 ```
 
 Se vera en consola la secuencia de movimientos:
