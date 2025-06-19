@@ -44,7 +44,7 @@ pip install motoron
 ambos módulos Motoron deben estar conectados a la Raspberry Pi vía I2C.
 
 <p>
-  <img src="files_/Esquemapaso.png" alt="conecciones" width="700" height="500"/>
+  <img src="recursos/rmod.png" alt="conecciones" width="700" height="500"/>
 </p>
 
 ### Ajusta las direcciones I2C si fuese necesario:
