@@ -60,10 +60,22 @@ i2cdetect -y 1
 ```bash
 i2cdetect -y 2
 ```
+<p>
+  <img src="recursos/pruebamodulos.png" alt="Pruebas" width="700" height="300"/>
+</p>
+
 ## 🛠️Conecciones necesarias 
 ### Conectamos los dos modulos con la rasberry pi 4 paralelamente
 
-### conectados los motores a los motores a las entradas out2 y 3 de ambos modulos (2 motores para un modulo)
+<p>
+  <img src="recursos/rmod.png" alt="conecciones" width="700" height="300"/>
+</p>
+
+### conectados los motores a los motores a las entradas M2 y M3 de ambos modulos (2 motores para un modulo)
+
+<p>
+  <img src="recursos/rmod.png" alt="conecciones" width="700" height="300"/>
+</p>
 
 ### coneccion de los encoders a los pines gpio 14 , 15 , 17 y 27 de la rasberry pi 4
 
