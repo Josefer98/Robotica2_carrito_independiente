@@ -98,6 +98,12 @@ i2cdetect -y 2
 ### conectamos a las fuentes de energia para los motores y para la raberry pi 4
 tomar en cuenta el votalaje y las tierras tando de motores como de las rasberry pi 4
 
+### regulador utilizado para energizar la rasberry pi 4
+
+<p>
+  <img src="recursos/regu.png" alt="regu" width="500" height="500"/>
+</p>
+
 ### Referencias 
 
 https://github.com/pololu/motoron-python 
