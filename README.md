@@ -122,5 +122,5 @@ Izquierda (2 s)
 ## 📌 Nota importante
 Asegúrarnos de que el bus I2C esté habilitado en tu Raspberry Pi (raspi-config).
 
-##Demostracion
+## Demostracion
 
