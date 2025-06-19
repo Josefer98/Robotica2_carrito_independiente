@@ -74,10 +74,26 @@ i2cdetect -y 2
 ### conectados los motores a los motores a las entradas M2 y M3 de ambos modulos (2 motores para un modulo)
 
 <p>
-  <img src="recursos/rmod.png" alt="conecciones" width="700" height="300"/>
+  <img src="recursos/modulos.png" alt="modulos" width="700" height="300"/>
+</p>
+
+<p>
+  <img src="recursos/concceionmotores.png" alt="motores" width="700" height="300"/>
 </p>
 
 ### coneccion de los encoders a los pines gpio 14 , 15 , 17 y 27 de la rasberry pi 4
+
+<p>
+  <img src="recursos/modulos2.png" alt="modulo" width="700" height="300"/>
+</p>
+
+<p>
+  <img src="recursos/motor.png" alt="motor" width="700" height="300"/>
+</p>
+
+<p>
+  <img src="recursos/coneccionfinal.png" alt="final" width="700" height="300"/>
+</p>
 
 ### conectamos a las fuentes de energia para los motores y para la raberry pi 4
 tomar en cuenta el votalaje y las tierras tando de motores como de las rasberry pi 4
