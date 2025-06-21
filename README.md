@@ -3,23 +3,68 @@
 
 # 🚀 Proyecto final carrito independiente con baterias externas
 
-💡 Este proyecto muestra cómo controlar un conjunto de cuatro ruedas mecanum omnidireccionales usando dos módulos Motoron I2C desde una Raspberry Pi 4, con fuentes de energia independientes
+💡 Este proyecto muestra cómo controlar un conjunto de cuatro ruedas mecanum omnidireccionales usando dos módulos Motoron I2C desde una Raspberry Pi 4, con fuentes de energia independientes lipo
 
 ## 📌 Introducción
 
-Utilizamos dos controladores Motoron (direcciones I2C `0x10` y `0x11`) para manejar cuatro motores con ruedas mecanum, logrando movimientos en cuatro direcciones: adelante, atrás, lateral derecha y lateral izquierda, conecetados a 2 baterias Lipo de 3 celdas con capacidad de 2200 mAh y un voltaje de 11.1 V (3 celdas). 
+Utilizamos dos controladores Motoron (direcciones I2C `0x10` y `0x11`) para manejar cuatro motores con ruedas mecanum, logrando movimientos en cuatro direcciones: adelante, atrás, lateral derecha y lateral izquierda, conecetados a 2 baterias Lipo de 3 celdas con capacidad de 2200 mAh y un voltaje de 11.1 V (3 celdas), para energizar los modulos y la rasberry pi 4. 
 
 ## 🧰 Tecnologías y Librerías
 
 - **Python 3**  
-- **motoron** (driver I2C para módulos Motoron) (https://github.com/pololu/motoron-python)   
-- **time** (para temporización)
+- 2 modulos Motoron M3H **motoron** (driver I2C para módulos Motoron) (https://github.com/pololu/motoron-python)   
 - [RPi.GPIO](https://pypi.org/project/RPi.GPIO/) para control de pines en la Raspberry Pi
 - 2 Baterias lipo
 - cables de coneccion
 - protoboard
 - 4 motores GM25-370 con encoders
+- Multimetro (regular energias)
+- 1 fuente (Probar voltages)
+- regulador de Voltage XL6019 LM2596S Auto DC-DC
+- chasis de aluminio
+- rasberry pi 4
   
+## 🚀 Armado y prueba de dos motores
+### Armar la Estructura de un carro con el chasis de alumnio
+### Conetar  en formar paralela el modulo M3H con la rasberry pi 4
+### Posteriormente conectar Ambos motores a el Modulo M3H
+coneccion motor 1: conectar el M1 de un motor al M2A y el M2 al M2B de la rasberry pi 4
+coneccion motor 2: conectar el M1 de un motor al M3A y el M2 al M3B de la rasberry pi 4
+
+posteriormente conectar el VIN(energía) y el GND(tierra) de el modulo a la Fuente de energia regulada a 9 Voltios y a su respectiva tierra
+La rasberry  debe estar alimentada por su cable 
+### Para la ejecucion de código
+En el sistema operativo de la rasberry pi 4 Abrir una terminal para Probar la coneccion de el modulo M3H
+con el comando 
+```bash
+i2cdetect -y 1
+```
+<p>
+  <img src="recursos/pruebamodulos.png" alt="Pruebas" width="700" height="300"/>
+</p>
+
+una vez detectado Instalar las dependencias y libreias necesarias 
+para los motores (motoron)
+```bash
+pip install motoron
+```
+Verificar si tiene Python Instalado 
+```bash
+python --version
+py --version
+```
+Instalar Python en caso de no tenerlo instalado 
+https://www.python.org/downloads/
+
+Clonar el repocitorio de polulo https://github.com/pololu/motoron-python dentro de el tasberry
+```bash
+git 
+```
+Copiar el codigo de el Repocitorio a un editor de codigo y ejectutarlo
+
+## Funcionamiento
+
+
 ## 🚀 Para  ejecución de código
 ### Clonar el repositorio
 Copiar código
