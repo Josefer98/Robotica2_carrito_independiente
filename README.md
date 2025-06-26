@@ -46,21 +46,16 @@ Sistema de control omnidireccional utilizando cuatro ruedas mecanum controladas 
 
 <p >
   <img src="recursos/alides.png" alt="Conexiones básicas" width="300" height="300"/>
-   <img src="recursos/fuente.png" alt="Conexiones básicas" width="300" height="300"/>
+  <img src="recursos/fuente.png" alt="Conexiones básicas" width="300" height="300"/>
+  <img src="recursos/rasberrypi4.png" alt="Conexiones básicas" width="300" height="300"/>
+  <img src="recursos/multimetro.png" alt="Conexiones básicas" width="300" height="300"/>
+  <img src="recursos/baterias.png" alt="Conexiones básicas" width="300" height="300"/>
+  <img src="recursos/cables.png" alt="Conexiones básicas" width="300" height="300"/>
+  <img src="recursos/motorrueda.png" alt="Conexiones básicas" width="300" height="300"/>
+  <img src="recursos/modulos.png" alt="Conexiones básicas" width="300" height="300"/>
+  <img src="recursos/concceionmotores.png" alt="Conexiones básicas" width="300" height="300"/>
 </p>
 
-<p >
-  <img src="recursos/multimetro.png" alt="Conexiones básicas" width="300" height="300"/>
-</p>
-<p >
-  <img src="recursos/motorrueda.png" alt="Conexiones básicas" width="300" height="300"/>
-</p>
-<p >
-  <img src="recursos/baterias.png" alt="Conexiones básicas" width="300" height="300"/>
-</p>
-<p >
-  <img src="recursos/cables.png" alt="Conexiones básicas" width="300" height="300"/>
-</p>
 ---
 
 ## 🚀 Guía de Construcción por Fases
@@ -107,7 +102,9 @@ i2cdetect -y 1
 1. Montar la Raspberry Pi en el chasis de aluminio
 2. Instalar 2 motores GM25-370 en posiciones opuestas
 3. Conectar las ruedas mecanum a los motores
-
+<p align="center">
+  <img src="recursos/rmod.png" alt="Conexiones básicas" width="700" height="300"/>
+</p>
 #### 2.2 Conexiones eléctricas - Configuración básica
 
 **Raspberry Pi ↔ Módulo Motoron M3H:**
