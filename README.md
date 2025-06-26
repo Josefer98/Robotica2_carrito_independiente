@@ -44,20 +44,23 @@ Sistema de control omnidireccional utilizando cuatro ruedas mecanum controladas 
 - Fuente de alimentación (para pruebas)
 - Destornilladores
 
-<p align="center">
+<p >
   <img src="recursos/alides.png" alt="Conexiones básicas" width="300" height="300"/>
 </p>
-<p align="center">
+<p >
   <img src="recursos/fuente.png" alt="Conexiones básicas" width="300" height="300"/>
 </p>
-<p align="center">
+<p >
   <img src="recursos/multimetro.png" alt="Conexiones básicas" width="300" height="300"/>
 </p>
-<p align="center">
-  <img src="recursos/motor.png" alt="Conexiones básicas" width="300" height="300"/>
+<p >
+  <img src="recursos/motorrueda.png" alt="Conexiones básicas" width="300" height="300"/>
 </p>
-<p align="center">
+<p >
   <img src="recursos/baterias.png" alt="Conexiones básicas" width="300" height="300"/>
+</p>
+<p >
+  <img src="recursos/cables.png" alt="Conexiones básicas" width="300" height="300"/>
 </p>
 ---
 
