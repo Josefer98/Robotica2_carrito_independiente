@@ -46,10 +46,9 @@ Sistema de control omnidireccional utilizando cuatro ruedas mecanum controladas 
 
 <p >
   <img src="recursos/alides.png" alt="Conexiones básicas" width="300" height="300"/>
+   <img src="recursos/fuente.png" alt="Conexiones básicas" width="300" height="300"/>
 </p>
-<p >
-  <img src="recursos/fuente.png" alt="Conexiones básicas" width="300" height="300"/>
-</p>
+
 <p >
   <img src="recursos/multimetro.png" alt="Conexiones básicas" width="300" height="300"/>
 </p>
