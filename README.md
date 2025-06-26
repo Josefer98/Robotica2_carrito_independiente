@@ -54,6 +54,7 @@ Sistema de control omnidireccional utilizando cuatro ruedas mecanum controladas 
   <img src="recursos/motorrueda.png" alt="Conexiones básicas" width="300" height="300"/>
   <img src="recursos/modulos.png" alt="Conexiones básicas" width="300" height="300"/>
   <img src="recursos/concceionmotores.png" alt="Conexiones básicas" width="300" height="300"/>
+  <img src="recursos/regu.png" alt="Regulador de voltaje" width="500" height="500"/>
 </p>
 
 ---
@@ -102,9 +103,12 @@ i2cdetect -y 1
 1. Montar la Raspberry Pi en el chasis de aluminio
 2. Instalar 2 motores GM25-370 en posiciones opuestas
 3. Conectar las ruedas mecanum a los motores
+
 <p align="center">
   <img src="recursos/rmod.png" alt="Conexiones básicas" width="700" height="300"/>
+  <img src="recursos/2Mconeccion.png" alt="Conexiones básicas" width="700" height="300"/>
 </p>
+
 #### 2.2 Conexiones eléctricas - Configuración básica
 
 **Raspberry Pi ↔ Módulo Motoron M3H:**
@@ -127,7 +131,7 @@ Raspberry Pi → Cable USB-C original
 ```
 
 <p align="center">
-  <img src="recursos/rmod.png" alt="Conexiones básicas" width="700" height="300"/>
+  <img src="recursos/circuito1motor.png" alt="Conexiones básicas" width="300" height="300"/>
 </p>
 
 #### 2.3 Instalación de librerías
@@ -151,6 +155,9 @@ git clone https://github.com/pololu/motoron-python
 i2cdetect -y 1
 # Debe mostrar dirección 0x10
 ```
+<p align="center">
+  <img src="recursos/pruebamodulos.png" alt="Detección I2C" width="700" height="300"/>
+</p>
 
 #### 2.5 Ejecutar prueba básica
 ```bash
@@ -164,7 +171,7 @@ python3 prueba_dos_motores.py
 - Pausa entre movimientos
 
 <p align="center">
-  <img src="recursos/pruebamodulos.png" alt="Detección I2C" width="700" height="300"/>
+  <img src="recursos/demo2.gif" alt="Detección I2C" width="700" height="300"/>
 </p>
 
 ---
@@ -184,7 +191,7 @@ Batería LiPo 2 (11.1V) → Módulos Motoron (VIN directo)
 ```
 
 <p align="center">
-  <img src="recursos/regu.png" alt="Regulador de voltaje" width="500" height="500"/>
+  <img src="recursos/regulador.png" alt="Regulador de voltaje" width="500" height="500"/>
 </p>
 
 ⚠️ **ADVERTENCIA:** Nunca conectar 11.1V directamente a la Raspberry Pi
@@ -220,7 +227,9 @@ Módulo 2 (0x11) - Lado Derecho:
 ```
 
 <p align="center">
+  <img src="recursos/rmod.png" alt="Módulos conectados" width="500" height="500"/>
   <img src="recursos/modulos.png" alt="Módulos conectados" width="500" height="500"/>
+  <img src="recursos/coneccionfinal.png" alt="Módulos conectados" width="500" height="500"/>
 </p>
 
 #### 4.3 Conexión de encoders (opcional)
@@ -232,7 +241,7 @@ Motor 4 Encoder → GPIO 24, 25
 ```
 
 <p align="center">
-  <img src="recursos/coneccionfinal.png" alt="Conexión final" width="500" height="500"/>
+  <img src="recursos/4Mconccion.png" alt="Módulos conectados" width="500" height="500"/>
 </p>
 
 #### 4.4 Sistema de energía final
@@ -273,10 +282,10 @@ python3 codigomotor.py
 ```
 
 **Secuencia de movimientos:**
-- Adelante (2 segundos)
-- Atrás (2 segundos)
-- Derecha (2 segundos)
-- Izquierda (2 segundos)
+- Adelante (flecha arriba)
+- Atrás (flecha abajo)
+- Derecha (flecha izquierda)
+- Izquierda (flecha derecha)
 
 ---
 
@@ -307,33 +316,16 @@ python3 -c "import motoron; print('✅ Motoron OK')"
 
 ---
 
-## 📁 Estructura del Proyecto
 
-```
-RobotCt_Omni_Wheel/
-├── 📄 README.md
-├── 🐍 codigomotor.py           # Código principal
-├── 🧪 prueba_dos_motores.py    # Prueba básica
-├── 📋 requirements.txt         # Dependencias
-├── 🖼️ recursos/               # Imágenes del proyecto
-│   ├── pruebamodulos.png      # Detección I2C
-│   ├── rmod.png               # Conexiones
-│   ├── modulos.png            # Módulos
-│   ├── coneccionfinal.png     # Ensamblaje final
-│   └── regu.png               # Regulador
-└── 📚 docs/                   # Documentación adicional
-```
-
----
 
 ## 🎮 Movimientos del Carrito
 
-| Dirección | Descripción | Duración |
-|-----------|-------------|----------|
-| ⬆️ Adelante | Avance frontal | 2 seg |
-| ⬇️ Atrás | Retroceso | 2 seg |
-| ➡️ Derecha | Desplazamiento lateral | 2 seg |
-| ⬅️ Izquierda | Desplazamiento lateral | 2 seg |
+| Dirección | Descripción |
+|-----------|-------------|
+| ⬆️ Adelante | Avance frontal | 
+| ⬇️ Atrás | Retroceso |
+| ➡️ Derecha | Desplazamiento lateral |
+| ⬅️ Izquierda | Desplazamiento lateral |
 
 ---
 
@@ -376,26 +368,19 @@ RobotCt_Omni_Wheel/
 
 ## 👥 Autores
 
-- **Cristian Alejandro Durán Ignacio** - [GitHub](https://github.com/Cristian-duran)
+- **Cristian Alejandro Durán Ignacio** 
 - **Alfaro Ayzama José Fernando** 
 - **Ever Rolando Rejas Espinoza**
 
 ---
 
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
-
----
 
 <div align="center">
 
 **🎬 Demostración**
 
-*Aquí se incluirá el video/GIF de demostración del carrito funcionando*
-
-**⭐ Si este proyecto te fue útil, no olvides darle una estrella ⭐**
-
-*Desarrollado con ❤️ para la comunidad de robótica*
+<p align="center">
+  <img src="recursos/demo.png" alt="Módulos conectados" width="500" height="500"/>
+</p>
 
 </div>
