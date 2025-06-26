@@ -6,7 +6,7 @@
 
 **Proyecto final de Robótica 2 - Carrito independiente con baterías externas**
 
-*Autores: Cristian Alejandro Durán Ignacio, Alfaro Ayzama José Fernando, Ever Rolando Rejas Espinoza*
+*Estudiantes: Cristian Alejandro Durán Ignacio, Alfaro Ayzama José Fernando, Ever Rolando Rejas Espinoza*
 
 ---
 
