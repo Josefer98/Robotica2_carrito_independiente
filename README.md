@@ -44,6 +44,9 @@ Sistema de control omnidireccional utilizando cuatro ruedas mecanum controladas 
 - Fuente de alimentación (para pruebas)
 - Destornilladores
 
+<p align="center">
+  <img src="recursos/rmod.png" alt="Conexiones básicas" width="700" height="300"/>
+</p>
 ---
 
 ## 🚀 Guía de Construcción por Fases
