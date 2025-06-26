@@ -258,8 +258,8 @@ Tierras comunes conectadas
 ### Instalación rápida
 ```bash
 # Clonar el repositorio
-git clone https://github.com/Cristian-duran/RobotCt_Omni_Wheel.git
-cd RobotCt_Omni_Wheel
+git clone  https://github.com/Josefer98/Robotica2_carrito_independiente.git
+cd Robotica2_carrito_independiente/codigo
 
 # Instalar dependencias
 pip3 install -r requirements.txt
