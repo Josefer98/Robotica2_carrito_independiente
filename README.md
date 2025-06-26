@@ -54,7 +54,7 @@ Sistema de control omnidireccional utilizando cuatro ruedas mecanum controladas 
   <img src="recursos/motorrueda.png" alt="Conexiones básicas" width="300" height="300"/>
   <img src="recursos/modulos.png" alt="Conexiones básicas" width="300" height="300"/>
   <img src="recursos/concceionmotores.png" alt="Conexiones básicas" width="300" height="300"/>
-  <img src="recursos/regu.png" alt="Regulador de voltaje" width="500" height="500"/>
+  <img src="recursos/regu.png" alt="Regulador de voltaje" width="300" height="300"/>
 </p>
 
 ---
@@ -156,7 +156,7 @@ i2cdetect -y 1
 # Debe mostrar dirección 0x10
 ```
 <p align="center">
-  <img src="recursos/pruebamodulos.png" alt="Detección I2C" width="700" height="300"/>
+  <img src="recursos/pruebamodulos.png" alt="Detección I2C" width="600" height="200"/>
 </p>
 
 #### 2.5 Ejecutar prueba básica
@@ -171,7 +171,7 @@ python3 prueba_dos_motores.py
 - Pausa entre movimientos
 
 <p align="center">
-  <img src="recursos/demo2.gif" alt="Detección I2C" width="700" height="300"/>
+  <img src="recursos/demo2.gif" alt="Detección I2C" width="500" height="500"/>
 </p>
 
 ---
@@ -227,7 +227,7 @@ Módulo 2 (0x11) - Lado Derecho:
 ```
 
 <p align="center">
-  <img src="recursos/rmod.png" alt="Módulos conectados" width="500" height="500"/>
+  <img src="recursos/rmod.png" alt="Módulos conectados" width="700" height="300"/>
   <img src="recursos/modulos.png" alt="Módulos conectados" width="500" height="500"/>
   <img src="recursos/coneccionfinal.png" alt="Módulos conectados" width="500" height="500"/>
 </p>
@@ -329,6 +329,16 @@ python3 -c "import motoron; print('✅ Motoron OK')"
 
 ---
 
+<div align="center">
+
+**🎬 Demostración**
+
+<p align="center">
+  <img src="recursos/demo.gif" alt="Módulos conectados" width="500" height="500"/>
+</p>
+
+</div>
+
 ## 📊 Especificaciones Técnicas
 
 ### Sistema de energía
@@ -372,15 +382,3 @@ python3 -c "import motoron; print('✅ Motoron OK')"
 - **Alfaro Ayzama José Fernando** 
 - **Ever Rolando Rejas Espinoza**
 
----
-
-
-<div align="center">
-
-**🎬 Demostración**
-
-<p align="center">
-  <img src="recursos/demo.png" alt="Módulos conectados" width="500" height="500"/>
-</p>
-
-</div>
