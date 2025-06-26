@@ -45,7 +45,19 @@ Sistema de control omnidireccional utilizando cuatro ruedas mecanum controladas 
 - Destornilladores
 
 <p align="center">
-  <img src="recursos/rmod.png" alt="Conexiones básicas" width="700" height="300"/>
+  <img src="recursos/alides.png" alt="Conexiones básicas" width="300" height="300"/>
+</p>
+<p align="center">
+  <img src="recursos/fuente.png" alt="Conexiones básicas" width="300" height="300"/>
+</p>
+<p align="center">
+  <img src="recursos/multimetro.png" alt="Conexiones básicas" width="300" height="300"/>
+</p>
+<p align="center">
+  <img src="recursos/motor.png" alt="Conexiones básicas" width="300" height="300"/>
+</p>
+<p align="center">
+  <img src="recursos/baterias.png" alt="Conexiones básicas" width="300" height="300"/>
 </p>
 ---
 
