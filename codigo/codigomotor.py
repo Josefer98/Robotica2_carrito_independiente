@@ -4,13 +4,14 @@ import time
 import motoron
 from threading import Thread
 
-# --- Configuraciï¿½n mï¿½dulos Motoron ---
-MC1_ADDR = 0x10  # mï¿½dulo controla motores 1 y 2 (ruedas izquierda)
-MC2_ADDR = 0x11  # mï¿½dulo controla motores 3 y 4 (ruedas derecha)
-SAMPLE_INTERVAL_S = 1.0
-SPEED = 500
+# Direcciones I2C de los controladores Motoron
+MC1_ADDR = 0x10  # Controla FL (izq) y FR (der)
+MC2_ADDR = 0x11  # Controla BL (izq) y BR (der)
 
-# Inicializaciï¿½n de mï¿½dulos Motoron
+SPEED = 300
+SAMPLE_INTERVAL_S = 1.0
+
+# Inicializaciï¿½n de controladores Motoron
 def setup_mc(mc):
     mc.reinitialize()
     mc.disable_crc()
@@ -21,88 +22,64 @@ mc2 = motoron.MotoronI2C(address=MC2_ADDR)
 setup_mc(mc1)
 setup_mc(mc2)
 
-# Funciï¿½n para leer "Current speed" de un canal del Motoron
-# Offset 6, longitud 2 bytes (signed int16)
+# Funciï¿½n para leer velocidad actual de un canal
 def read_current_speed(mc, channel):
     raw = mc.get_variables(channel, 6, 2)
     return int.from_bytes(raw, byteorder='little', signed=True)
 
-# Monitoreo de velocidades de los cuatro motores
+# Hilo de monitoreo de velocidad
 def monitor_speeds():
     while True:
-        # Leer canales 2 y 3 de cada mï¿½dulo
-        v1 = read_current_speed(mc1, 2)
-        v2 = read_current_speed(mc1, 3)
-        v3 = read_current_speed(mc2, 2)
-        v4 = read_current_speed(mc2, 3)
-        print(f"Velocidades | M1: {v1} | M2: {v2} | M3: {v3} | M4: {v4}")
+        v_fl = read_current_speed(mc1, 2)
+        v_fr = read_current_speed(mc1, 3)
+        v_bl = read_current_speed(mc2, 2)
+        v_br = read_current_speed(mc2, 3)
+        print(f"Velocidades | FL:{v_fl:5} FR:{v_fr:5} BL:{v_bl:5} BR:{v_br:5}")
         time.sleep(SAMPLE_INTERVAL_S)
 
-# Funciones de movimiento
+Thread(target=monitor_speeds, daemon=True).start()
 
-def move_forward(speed=SPEED):
-    # ambos mï¿½dulos hacia adelante
-    mc1.set_speed(2, speed)
-    mc1.set_speed(3, speed)
-    mc2.set_speed(2, speed)
-    mc2.set_speed(3, speed)
+# Funciï¿½n genï¿½rica para mover cada motor por separado
+def move_motors(v_fl, v_fr, v_bl, v_br):
+    mc1.set_speed(2, v_fl)  # FL
+    mc1.set_speed(3, v_fr)  # FR
+    mc2.set_speed(2, v_bl)  # BL
+    mc2.set_speed(3, v_br)  # BR
 
+# Funciones de movimiento bï¿½sicas
+def move_forward():    move_motors(-SPEED,  SPEED, -SPEED,  SPEED)
+def move_backward():   move_motors(SPEED, -SPEED, SPEED, -SPEED)
+def turn_left():       move_motors(SPEED, SPEED, SPEED, SPEED)  # Giro antihorario
+def turn_right():      move_motors(-SPEED, -SPEED, -SPEED, -SPEED)  # Giro horario
+def stop_all():        move_motors(0, 0, 0, 0)
 
-def move_backward(speed=SPEED):
-    mc1.set_speed(2, -speed)
-    mc1.set_speed(3, -speed)
-    mc2.set_speed(2, -speed)
-    mc2.set_speed(3, -speed)
-
-
-def strafe_right(speed=SPEED):
-    # izquierda atrï¿½s, derecha adelante
-    mc1.set_speed(2, -speed)
-    mc1.set_speed(3, -speed)
-    mc2.set_speed(2, speed)
-    mc2.set_speed(3, speed)
-
-
-def strafe_left(speed=SPEED):
-    mc1.set_speed(2, speed)
-    mc1.set_speed(3, speed)
-    mc2.set_speed(2, -speed)
-    mc2.set_speed(3, -speed)
-
-
-def stop_all():
-    mc1.set_speed(2, 0)
-    mc1.set_speed(3, 0)
-    mc2.set_speed(2, 0)
-    mc2.set_speed(3, 0)
-
-# Lanzar hilo de monitoreo de velocidades
-monitor_thread = Thread(target=monitor_speeds, daemon=True)
-monitor_thread.start()
-
-# Ciclo principal de demostraciï¿½n
+# Bucle principal
+print("Control manual: w = adelante, s = atras, a = giro izq, d = giro der, x = stop, q = salir")
 try:
     while True:
-        print("Adelante")
-        move_forward()
-        time.sleep(2)
-
-        print("Atras")
-        move_backward()
-        time.sleep(2)
-
-        print("Derecha")
-        strafe_right()
-        time.sleep(2)
-
-        print("Izquierda")
-        strafe_left()
-        time.sleep(2)
-
+        cmd = input(">>> ").strip().lower()
+        if cmd == 'w':
+            move_forward()
+            print("Avanzando...")
+        elif cmd == 's':
+            move_backward()
+            print("Retrocediendo...")
+        elif cmd == 'a':
+            turn_left()
+            print("Girando a la izquierda...")
+        elif cmd == 'd':
+            turn_right()
+            print("Girando a la derecha...")
+        elif cmd == 'x':
+            stop_all()
+            print("Frenado!")
+        elif cmd == 'q':
+            print("Saliendo...")
+            break
+        else:
+            print("Comando no reconocido.")
 except KeyboardInterrupt:
     pass
-
 finally:
-    print("Deteniendo motores...")
     stop_all()
     print("Motores detenidos.")
